@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+  webp_builder:
+    build:
+      context: .
+      dockerfile: DockerFile
+    image: webp_builder
+    ports:
+      - "88:3000"
+    container_name: webp
+    volumes:
+           - ./:/home/webp
+    command: ["sh", "-c", "cd /home/webp; node -v; yarn install; node index.js;"]
